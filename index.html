@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cube Coach — Paint & Learn</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@600;700;800&family=JetBrains+Mono:wght@700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="bg" aria-hidden="true">
+    <span class="orb orb-a"></span>
+    <span class="orb orb-b"></span>
+    <span class="orb orb-c"></span>
+    <span class="spark s1"></span>
+    <span class="spark s2"></span>
+    <span class="spark s3"></span>
+    <span class="spark s4"></span>
+  </div>
+
+  <div class="wrap">
+    <header class="top">
+      <div class="logo">
+        <div class="logo-mark" aria-hidden="true">
+          <i></i><i></i><i></i><i></i>
+        </div>
+        <div>
+          <p class="kicker">Step-by-step cube teacher</p>
+          <h1>Cube <span>Coach</span></h1>
+        </div>
+      </div>
+      <div class="badge" id="solverBadge">
+        <span class="dot"></span>
+        Getting the teacher ready…
+      </div>
+    </header>
+
+    <section class="hero">
+      <div class="hero-copy">
+        <h2>Paint your cube. Copy each turn. Watch it click into place.</h2>
+        <p>
+          Hold the cube with <em class="c-w">white</em> on top and
+          <em class="c-g">green</em> in front. Colour the net to match what you see,
+          then press <strong>Teach me</strong>. I will talk you through every move.
+        </p>
+        <ol class="howto">
+          <li><span>1</span> Pick a colour</li>
+          <li><span>2</span> Tap the stickers</li>
+          <li><span>3</span> Follow each turn</li>
+        </ol>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="float-cube">
+          <b class="f u"></b><b class="f r"></b><b class="f fce"></b>
+        </div>
+      </div>
+    </section>
+
+    <main class="grid">
+      <section class="card paint-card">
+        <div class="card-head">
+          <span class="step-no">01</span>
+          <div>
+            <h2>Colour in your cube</h2>
+            <p class="hint">Centres stay locked. Only the 8 stickers around each centre change.</p>
+          </div>
+        </div>
+
+        <div class="palette" id="palette"></div>
+
+        <div class="net-frame">
+          <div class="net-wrap">
+            <div class="net" id="net"></div>
+          </div>
+        </div>
+
+        <div class="row">
+          <button id="btnSolved" class="secondary" type="button">Reset solved</button>
+          <button id="btnScramble" class="secondary" type="button">Scramble</button>
+          <button id="btnClear" class="ghost" type="button">Blank stickers</button>
+        </div>
+        <div class="status" id="paintStatus">Solved cube ready. Paint yours, or scramble for practice.</div>
+      </section>
+
+      <section class="card lesson">
+        <div class="card-head">
+          <span class="step-no alt">02</span>
+          <div>
+            <h2>Learn the solve</h2>
+            <p class="hint">One move at a time, in plain English.</p>
+          </div>
+        </div>
+
+        <div class="stage-pill" id="stagePill">Ready when you are</div>
+
+        <div class="move-hero">
+          <div class="move-letter" id="moveLetter">—<small>MOVE</small></div>
+          <div class="explain">
+            <h3 id="moveTitle">Press Teach me</h3>
+            <p id="moveText">I will check your colours, then show each turn so you can copy it on your real cube.</p>
+          </div>
+        </div>
+
+        <div class="progress"><div id="bar"></div></div>
+        <div class="steps-count" id="stepsCount">0 / 0 moves</div>
+
+        <div class="row">
+          <button id="btnSolve" class="good" type="button">Teach me</button>
+          <button id="btnPrev" class="secondary" type="button" disabled>Back</button>
+          <button id="btnNext" class="secondary" type="button" disabled>Next move</button>
+          <button id="btnPlay" class="warn" type="button" disabled>Play</button>
+        </div>
+
+        <div class="algo-box" id="algoBox">Solution will appear here.</div>
+
+        <div class="preview-label">Live cube preview</div>
+        <div class="preview-row">
+          <div class="mini-faces" id="miniFaces"></div>
+        </div>
+
+        <div class="notation">
+          <div><b>R</b> right face clockwise</div>
+          <div><b>R'</b> right face the other way</div>
+          <div><b>R2</b> right face half turn</div>
+          <div><b>U D F B L</b> up, down, front, back, left</div>
+          <div><b>'</b> means the other way</div>
+          <div><b>2</b> means turn twice</div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      White sits opposite yellow · red opposite orange · blue opposite green.
+      Centres never swap places with each other.
+    </footer>
+  </div>
+
+  <script src="cube.js"></script>
+  <script src="solve.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
